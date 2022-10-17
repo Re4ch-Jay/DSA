@@ -84,7 +84,13 @@ int main() {
                 cout<<"Enter student ID: "; cin>>findId;
                 for ( i = 0; i < length; i++){
                     if(student[i].ID == findId){
-                        cout<<"Student with this id "<<findId<< " name: "<<student[i].name<<endl;
+                        cout<<"Student with this id "<<findId<<endl;
+                        cout<<"\tName "<<student[i].name<<endl; 
+                        cout<<"\tSex "<<student[i].sex<<endl; 
+                        cout<<"\tAge "<<student[i].age<<endl; 
+                        cout<<"\tQuiz "<<student[i].quiz<<endl; 
+                        cout<<"\tMidterm "<<student[i].midterm<<endl; 
+                        cout<<"\tFinal "<<student[i].finalScore<<endl;
                         break;
                     }
                 }

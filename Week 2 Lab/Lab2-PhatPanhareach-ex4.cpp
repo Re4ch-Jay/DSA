@@ -5,11 +5,11 @@
 #include <iostream>
 using namespace std;
 
-void findMinMax(int numbers[], int length, int *min, int *max)
+void findMinMax(int numbers[7], int length, int *min, int *max)
 {
 
     int i;
-    for (i = 1; i < length; i++)
+    for (i = 1; i <= length; i++)
     {
         if (*min > numbers[i])
         {
