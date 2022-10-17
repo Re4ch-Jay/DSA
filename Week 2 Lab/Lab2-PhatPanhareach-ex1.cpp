@@ -50,7 +50,7 @@ int main() {
                 for (int i = 0; i < 2; i++){
                     cout<<"INPUT CAR NO:" << i + 1 <<endl;
                     cout<<"Enter ID: "; cin>>student[i].ID; 
-                    cout<<"Enter name: "; cin>>student[i].name; 
+                    cout<<"Enter name: "; cin>>student[i].name;
                     cout<<"Enter sex: "; cin>>student[i].sex; 
                     cout<<"Enter age: "; cin>>student[i].age; 
                     cout<<"Enter quiz: "; cin>>student[i].quiz; 
@@ -62,7 +62,7 @@ int main() {
                 break;
             case 2:
                 for (int i = 0; i < length; i++){
-                    cout<<"INPUT CAR NO:" << i + 1 <<endl;
+                    cout<<"INPUT Student NO:" << i + 1 <<endl;
                     cout<<"\tID "<<student[i].ID<<endl; 
                     cout<<"\tName "<<student[i].name<<endl; 
                     cout<<"\tSex "<<student[i].sex<<endl; 
@@ -74,9 +74,8 @@ int main() {
                 break;
             case 3:
                 for (int i = 1; i < length; ++i) {
-                    if (student[0].total < student[i].total) {
-                        student[0] = student[i];
-                    }
+                    if (student[0].total < student[i].total) student[0] = student[i];
+                    
                 }
                 cout<<"Student with highest score is: "<<student[0].name<<endl;
                 break;
@@ -96,14 +95,10 @@ int main() {
                 min = student[0].total;
                 for(int i=0; i < length; i++)
                 {
-                    if(student[i].total > max)
-                    {
-                        max = student[i].total;
-                    }
-                    if(student[i].total < min){
-
-                        min = student[i].total;
-                    }
+                    if(student[i].total > max) max = student[i].total;
+                    
+                    if(student[i].total < min) min = student[i].total;
+                    
                     average = min + max;
                 }
                 cout<<"Max = "<<max<<endl;

@@ -14,7 +14,7 @@ int main() {
    
     cout<<"Enter number: "; cin>>n;
     *p = *p + 7;
-    cout<<*p;
+    cout<<"Answer is: "<<*p<<endl;
 
     return 0;
 }

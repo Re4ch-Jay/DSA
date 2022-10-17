@@ -9,12 +9,12 @@
 using namespace std;
 
 void sum1(double *sum, unsigned int n){
-    *sum = 0;
-    for (double i = 0; i <= n; i++)
-    {
-        *sum += 1 / i;
+
+    float sum1 = 0.00;
+    for(float i = 1; i <= n; i++){
+        sum1 = sum1 + (1 / i);
     }
-    cout<<*sum<<endl;
+    cout<<"Sum with poiner: "<<sum1<<endl;
 }
 
 
@@ -30,12 +30,11 @@ double sum2(unsigned int n){
 int main() {
 
     unsigned int n;
-    double sum = 0;
+    double sum;
     cout<<"Enter number: "; cin>>n;
 
     sum1(&sum, n);
-
-    cout<<sum2(n)<<endl;
+    cout<<"Sum with none pointer: "<<sum2(n)<<endl;
     
 
     return 0;
