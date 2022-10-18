@@ -5,6 +5,10 @@
 // never stop.
 
 #include <iostream>
+#include<stdio.h>
+#include<string.h>
+#include <unistd.h>
+
 using namespace std;
 
 struct Student {
@@ -17,6 +21,26 @@ struct Student {
     int finalScore;
     int total;
 };
+
+int loading(){
+    const int trigger = 500; // ms
+    const int numDots = 4;
+    const char prompt[] = "  Loading";
+    long long k = 0;
+    while (1 && k < 1) {
+        // Return and clear with spaces, then return and print prompt.
+        printf("\r%*s\r%s", sizeof(prompt) - 1 + numDots, "", prompt);
+        fflush(stdout);
+
+        // Print numDots number of dots, one every trigger milliseconds.
+        for (int i = 0; i < numDots; i++) {
+            usleep(trigger * 1000);
+            fputc('.', stdout);
+            fflush(stdout);
+        }
+        k += 1;
+    }
+}
 
 int main() {
 
@@ -31,8 +55,8 @@ int main() {
     
     while (choice != 6)
     {
-        
-        cout<<"***********************"<<endl;
+        loading();
+        cout<<"\n***********************"<<endl;
         cout<<"\tMenu"<<endl;
         cout<<"***********************"<<endl;
         cout<<"1. Add 2 students"<<endl;
@@ -48,6 +72,7 @@ int main() {
             case 1:
                 
                 for (int i = 0; i < 2; i++){
+                    
                     cout<<"INPUT CAR NO:" << i + 1 <<endl;
                     cout<<"Enter ID: "; cin>>student[i].ID; 
                     cout<<"Enter name: "; cin>>student[i].name;
@@ -58,9 +83,12 @@ int main() {
                     cout<<"Enter final score: "; cin>>student[i].finalScore; 
                     length++;
                     student[i].total = student[i].quiz + student[i].midterm + student[i].finalScore;
+                    
                 }
+                loading();
                 break;
             case 2:
+                loading();
                 for (int i = 0; i < length; i++){
                     cout<<"INPUT Student NO:" << i + 1 <<endl;
                     cout<<"\tID "<<student[i].ID<<endl; 
@@ -71,6 +99,7 @@ int main() {
                     cout<<"\tMidterm "<<student[i].midterm<<endl; 
                     cout<<"\tFinal "<<student[i].finalScore<<endl; 
                 }
+                
                 break;
             case 3:
                 for (int i = 1; i < length; ++i) {
