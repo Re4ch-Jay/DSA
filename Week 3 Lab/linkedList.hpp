@@ -1,4 +1,4 @@
-
+#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
@@ -148,43 +148,53 @@ void searchCitizensByName(List *ls, string newName){
     }
 }
 
-// Function to print the largest
-// and second largest element
-void findLargestAndSecondLargest(Element* head)
+// Function to push the node at the
+// beginning of the linked list
+void push(struct Element** head_ref, int newSalary)
 {
-    // initialise max and second max using
-    // first two nodes of linked list
+    struct Element* new_node = (struct Element*)malloc(sizeof(struct Element));
+ 
+    new_node->salary = newSalary;
+    new_node->next = (*head_ref);
+    (*head_ref) = new_node;
+}
+
+void findLargestAndSecondLargest(List *ls, Element *head)
+{
+    Element *tmp;
+    tmp = ls -> head;
+    if(tmp == NULL) cout<<"There is no citizens right now."<<endl;
+
     int val1 = head->salary,
         val2 = head->next->salary,
+        val3 = head->next->next->salary,
         max = std::max(val1, val2),
-        second_max = std::min(val1, val2);
- 
-    // move the head pointer to 3rd node
+        second_max = std::min(val1, val2),
+        third_max = std::min(val2, val3);
+
     head = head->next->next;
- 
+    
     // iterate over rest of linked list
     while (head != NULL) {
  
         if (head->salary > max) {
  
-            
             second_max = max;
             max = head->salary;
         }
         else if (head->salary > second_max) {
- 
             second_max = head->salary;
+        }else{
+            third_max = head->salary;
         }
  
         // move the head pointer to next node
         head = head->next;
     }
- 
-    // Print the largest
-    // and second largest value
-    cout << "Largest = "
-         << max << endl;
-    cout << "Second Largest = "
+    cout<<"List of 1s and 2nd largest salary"<<endl;
+    cout << "Largest salary = "
+         << max <<endl;
+    cout << "Second Largest salary = "
          << second_max << endl;
+    cout<<"Smallest salary = "<<third_max<<endl;
 }
- 

@@ -13,7 +13,7 @@ using namespace std;
 int main () {
 
     List * myList;  
-    Element * head;
+    struct Element* head = NULL;
     string ID, name, gender;
     int salary, choice;
     myList = createEmptyList();
@@ -34,14 +34,17 @@ int main () {
             cout<<"Enter citizens gender: "; cin>>gender;
             cout<<"Enter citizens salary: "; cin>>salary;
             if(isIdExist(myList, ID) == 1) break;
-            if(isIdExist(myList, ID) == 0) insertBegin(myList, ID, name, gender, salary);
+            if(isIdExist(myList, ID) == 0) {
+                insertBegin(myList, ID, name, gender, salary);
+                push(&head, salary);
+            }
             break;
         case 2:
             displayInfoList(myList);
             break;
         case 3:
             int choice2;
-            cout<<"Search by ID = 1 or Name = 2: "; cin>>choice2;
+            cout<<"Search by ID = 1 or by Name = 2: "; cin>>choice2;
             if(choice2 == 1) {
                 cout<<"Input citizens ID: "; cin>>ID;
                 cout<<endl;
@@ -56,8 +59,8 @@ int main () {
             }
             break;
         case 4:
-            cout<<"\n\tOn maintenance"<<endl;
-            // findLargestAndSecondLargest(head);
+            if(!myList, !head) cout<<"Please add at least 3 citizens"<<endl;
+            else findLargestAndSecondLargest(myList, head);
             break;
         default:
             cout<<"Thank you for using our program.\n";

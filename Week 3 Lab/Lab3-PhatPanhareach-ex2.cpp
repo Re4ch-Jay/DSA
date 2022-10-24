@@ -5,7 +5,6 @@
 // Then in main program, call these three functions to test and see the result. Try to add 10 ID data of students into the list.
 
 #include <iostream>
-
 using namespace std;
 
 struct Element {

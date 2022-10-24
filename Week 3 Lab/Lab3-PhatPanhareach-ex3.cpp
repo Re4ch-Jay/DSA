@@ -11,7 +11,6 @@
 #include <iostream>
 using namespace std;
 
-
 struct Element{
     int number;
     Element *next;
@@ -68,7 +67,6 @@ void insertEnd(List *ls, int newNumber) {
     }
 }
 
-
 void displayInfoList(List *ls){
     Element *tmp;
     tmp = ls -> head;
@@ -80,7 +78,6 @@ void displayInfoList(List *ls){
     }
     
 }
-
 
 int main () {
 

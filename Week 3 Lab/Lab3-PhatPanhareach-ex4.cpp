@@ -7,7 +7,6 @@
 #include <iostream>
 using namespace std;
 
-
 struct Element{
     int averageScore;
     string ID;
@@ -95,7 +94,7 @@ int main () {
 
 
     while(choice != 3){
-        cout<<"1. Add 2 students: "<<endl;
+        cout<<"1. Add students: "<<endl;
         cout<<"2. Display all students: "<<endl;
         cout<<"3. Exit"<<endl;
         cout<<"Choice: "; cin>>choice;

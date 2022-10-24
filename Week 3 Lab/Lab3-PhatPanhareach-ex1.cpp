@@ -16,10 +16,20 @@ struct List {
     Element *head, *tail;
 };
 
+List * createEmptyList(){
+    List *ls;
+    ls = new List;
+    ls -> size = 0;
+    ls -> head = NULL;
+    ls -> tail = NULL;
 
+    return ls;
+}
 
 int main () {
 
+    List *myList;
+    myList = createEmptyList();
 
     return 0;
 }
