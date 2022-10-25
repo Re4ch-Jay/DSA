@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 struct Element{
@@ -197,4 +198,120 @@ void findLargestAndSecondLargest(List *ls, Element *head)
     cout << "Second Largest salary = "
          << second_max << endl;
     cout<<"Smallest salary = "<<third_max<<endl;
+}
+
+
+float findMax1(List *ls){
+    float max1 = -99999999; //make assumption
+    Element *t;
+
+    t = ls->head;
+    while (t != NULL)
+    {
+        if(t->salary > max1) {
+            max1 = t->salary;
+        }
+        t = t->next;
+    }
+    return max1;
+}
+
+
+float findMax2(List *ls){
+    float max2 = -99999999; //make assumption
+    float max1 = findMax1(ls);
+    Element *t;
+
+    t = ls->head;
+    while (t != NULL)
+    {
+        if(t->salary > max1 && t->salary != max1) {
+            max2 = t->salary;
+        }
+        t = t->next;
+    }
+    return max2;
+}
+
+
+
+float findMax3(List *ls){
+    float max3 = -99999999; //make assumption
+    float max2 = findMax2(ls);
+    Element *t;
+
+    t = ls->head;
+    while (t != NULL)
+    {
+        if(t->salary > max3 && t->salary != max3) {
+            max3 = t->salary;
+        }
+        t = t->next;
+    }
+    return max3;
+}
+
+int counter = 0;
+
+void displayMax(List *ls, float max1){
+    Element *tmp;
+    tmp = ls->head;
+    while (tmp != NULL)
+    {
+        if(tmp->salary == max1){
+            cout<<"\n\tCitizens ID: "<<tmp->ID<<endl;
+            cout<<"\n\tCitizens name: "<<tmp->name<<endl;
+            cout<<"\n\tCitizens Gender: "<<tmp->gender<<endl;
+            cout<<"\n\tCitizens Salary "<<tmp->salary<<endl;
+            counter++;
+            if(counter == 3){
+                break;
+            } 
+        }
+        tmp = tmp -> next;
+    }
+    
+}
+
+
+void saveData(List *ls){
+    fstream f1;
+    f1.open("data.txt", ios::app);
+    Element *tmp;
+    tmp = ls->head;
+    while (tmp != NULL)
+    {
+        f1<<"\n\tCitizens ID: "<<tmp->ID<<endl;
+        f1<<"\n\tCitizens name: "<<tmp->name<<endl;
+        f1<<"\n\tCitizens Gender: "<<tmp->gender<<endl;
+        f1<<"\n\tCitizens Salary "<<tmp->salary<<endl;
+
+        
+        tmp = tmp->next;
+    }
+    
+
+    f1.close();
+}
+
+
+void readData(List *ls){
+    fstream f;
+    int ID;
+    string name;
+    string gender;
+    int salary;
+
+    f.open("data.txt", ios::in);
+    Element *tmp;
+    tmp = ls->head;
+    while (!f.eof())
+    {
+        f>>ID>>name>>gender>>salary;
+        cout<<"\n\tCitizens ID: "<<tmp->ID<<endl;
+        cout<<"\n\tCitizens name: "<<tmp->name<<endl;
+        cout<<"\n\tCitizens Gender: "<<tmp->gender<<endl;
+        cout<<"\n\tCitizens Salary "<<tmp->salary<<endl;
+    }
+    f.close();    
 }

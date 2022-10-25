@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -93,4 +94,19 @@ void deleteAll(List *ls){
     while(ls->size > 0){
         deleteBegin(ls);
     }
+}
+
+void saveData(List *ls){
+    fstream f1;
+    f1.open("data.txt", ios::app);
+    Element *tmp;
+    tmp = ls->head;
+    while (tmp != NULL)
+    {
+        f1<<" "<<tmp->data<<endl;
+        tmp = tmp->next;
+    }
+    
+
+    f1.close();
 }

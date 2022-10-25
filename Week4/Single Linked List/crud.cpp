@@ -11,24 +11,11 @@ int main () {
     insertBegin(myList, 1000);
     insertBegin(myList, 1001);
     insertBegin(myList, 1002);
-    displayData(myList);
-
-    cout<<"Delete Begin"<<endl;
-    deleteBegin(myList);
-    displayData(myList);
-    cout<<"Delete Last"<<endl;
-    deleteLast(myList);
-    displayData(myList);
-
-    cout<<"Add more data"<<endl;
     insertBegin(myList, 1000);
     insertBegin(myList, 1001);
     insertBegin(myList, 1002);
 
     displayData(myList);
-
-    deleteAll(myList);
-    displayData(myList);
-    cout<<"Delete All"<<endl;
+    saveData(myList);
     return 0;
 }

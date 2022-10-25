@@ -17,7 +17,7 @@ int main () {
     string ID, name, gender;
     int salary, choice;
     myList = createEmptyList();
-
+    float max1, max2, max3;
 
     while(choice != 5){
         cout<<"1. Add citizens: "<<endl;
@@ -37,10 +37,16 @@ int main () {
             if(isIdExist(myList, ID) == 0) {
                 insertBegin(myList, ID, name, gender, salary);
                 push(&head, salary);
+                saveData(myList);
+                max1 = findMax1(myList);
+                max2 = findMax2(myList);
+                max3 = findMax3(myList);
             }
             break;
         case 2:
+            // readData(myList);
             displayInfoList(myList);
+
             break;
         case 3:
             int choice2;
@@ -59,8 +65,13 @@ int main () {
             }
             break;
         case 4:
-            if(!myList, !head) cout<<"Please add at least 3 citizens"<<endl;
-            else findLargestAndSecondLargest(myList, head);
+            // if(!myList, !head) cout<<"Please add at least 3 citizens"<<endl;
+            // else findLargestAndSecondLargest(myList, head);
+           
+            displayMax(myList, max1);
+            displayMax(myList, max2);
+            displayMax(myList, max3);
+
             break;
         default:
             cout<<"Thank you for using our program.\n";
