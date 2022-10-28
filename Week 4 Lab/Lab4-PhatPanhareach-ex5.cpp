@@ -131,18 +131,47 @@ void findLower25(List *ls){
     }
 }
 
-float findAverage(List *ls){
-    float average = 0;
-    Element *t;
-    t = ls->head;
-    while (t != NULL)
-    {   
-        average = (t->data + t->next->data) / ls->size;
-        t = t->next;
+float avgOfElements(Element* head)
+{
+    // if head = NULL
+    if (!head)
+        return -1;
+ 
+    int count = 0; // Initialize count
+    int sum = 0;
+    float avg = 0.0;
+ 
+    Element* current = head; // Initialize current
+    while (current != NULL) {
+        count++;
+        sum += current->data;
+        current = current->next;
     }
-    return average;
+ 
+    // calculate average
+    avg = (double)sum / count;
+ 
+    return avg;
 }
 
+float findAverage(List *ls) {
+    Element *t;
+    t = ls->head;
+
+    int count = 0; // Initialize count
+    int sum = 0;
+    float average = 0.0;
+    while (t != NULL)
+    {
+        count++;
+        sum += t->data;
+        t = t->next;
+    }
+     // calculate average
+    average = (float)sum / count;
+    return average;
+}
+ 
 int main () {
 
     List * ls;
@@ -167,6 +196,7 @@ int main () {
                 }
                 break;
             case 2:
+                cout<<"\n\t\tFind the maximum and minimum numbers in the linked list"<<endl;
                 max = findMax(ls);
                 min = findMin(ls);
                 cout<<"\n\tMax = "<<max<<endl;
@@ -174,13 +204,15 @@ int main () {
 
                 break;
             case 3:
-                
+                cout<<"\n\t\tFind average, min, max, and those numbers that are lower than 25"<<endl;
                 max = findMax(ls);
                 min = findMin(ls);
                 cout<<"\n\tMax = "<<max<<endl;
                 cout<<"\n\tMin = "<<min<<endl;
                 findLower25(ls);
-    	        cout<<"\n\tAverage is under maintenance, come back later"<<endl;
+                cout<<"\n";
+                average = findAverage(ls);
+                cout<<"\n\tAverage = "<<average<<endl<<endl;
                 break;
             case 4:
                 int code;
@@ -188,18 +220,18 @@ int main () {
                 cout<<"\t2. Display from tail"<<endl;
                 cout<<"\tCode: "; cin>>code;
                 if(code == 1) {
-                    cout<<"\tAll numbers from head"<<endl;
+                    cout<<"\n\t\tAll numbers from head"<<endl;
                     displayFromHead(ls);
                 }
                 else if(code == 2) {
-                    cout<<"\tAll numbers from tail"<<endl;
+                    cout<<"\n\t\tAll numbers from tail"<<endl;
                     displayFromTail(ls);
                 }else{
-                    cout<<"\n\tThere is no code you just input"<<endl;
+                    cout<<"\n\t\tThere is no code you just input"<<endl;
                 }
                 break;
             default:
-                cout<<"\n\tThank for using our program.\n"<<endl;
+                cout<<"\n\t\tThank for using our program.\n"<<endl;
                 break;
         }
        
