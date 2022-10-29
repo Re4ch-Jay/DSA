@@ -225,15 +225,13 @@ float findMax2(List *ls){
     t = ls->head;
     while (t != NULL)
     {
-        if(t->salary > max1 && t->salary != max1) {
+        if(t->salary > max2 && t->salary != max2) {
             max2 = t->salary;
         }
         t = t->next;
     }
     return max2;
 }
-
-
 
 float findMax3(List *ls){
     float max3 = -99999999; //make assumption
@@ -270,7 +268,24 @@ void displayMax(List *ls, float max1){
         }
         tmp = tmp -> next;
     }
-    
+}
+
+float findAverage(List *ls) {
+    Element *tmp;
+    tmp = ls->head;
+
+    int count = 0; // Initialize count
+    int sum = 0;
+    float average = 0.0;
+    while (tmp != NULL)
+    {
+        count++;
+        sum += tmp->salary;
+        tmp = tmp->next;
+    }
+     // calculate average
+    average = (float)sum / count;
+    return average;
 }
 
 
@@ -285,14 +300,12 @@ void saveData(List *ls){
         f1<<"\n\tCitizens name: "<<tmp->name<<endl;
         f1<<"\n\tCitizens Gender: "<<tmp->gender<<endl;
         f1<<"\n\tCitizens Salary "<<tmp->salary<<endl;
-
-        
         tmp = tmp->next;
     }
     
-
     f1.close();
 }
+
 
 
 void readData(List *ls){
@@ -307,11 +320,13 @@ void readData(List *ls){
     tmp = ls->head;
     while (!f.eof())
     {
-        f>>ID>>name>>gender>>salary;
-        cout<<"\n\tCitizens ID: "<<tmp->ID<<endl;
-        cout<<"\n\tCitizens name: "<<tmp->name<<endl;
-        cout<<"\n\tCitizens Gender: "<<tmp->gender<<endl;
-        cout<<"\n\tCitizens Salary "<<tmp->salary<<endl;
+        while (tmp != NULL){
+            f>>ID>>name>>gender>>salary;
+            cout<<"\n\tCitizens ID: "<<tmp->ID<<endl;
+            cout<<"\n\tCitizens name: "<<tmp->name<<endl;
+            cout<<"\n\tCitizens Gender: "<<tmp->gender<<endl;
+            cout<<"\n\tCitizens Salary "<<tmp->salary<<endl;
+        }
     }
     f.close();    
 }

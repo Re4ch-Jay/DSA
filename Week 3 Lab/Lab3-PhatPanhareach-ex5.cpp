@@ -44,8 +44,8 @@ int main () {
             }
             break;
         case 2:
-            // readData(myList);
-            displayInfoList(myList);
+            readData(myList);
+            // displayInfoList(myList);
 
             break;
         case 3:
