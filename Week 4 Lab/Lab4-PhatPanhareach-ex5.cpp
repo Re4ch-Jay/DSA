@@ -6,6 +6,7 @@
 // c. Display all data in the linked list from the head to the tail and vice versa
 
 #include <iostream>
+#include <time.h>
 using namespace std;
 
 struct Element {
@@ -70,8 +71,11 @@ void displayFromHead(List *ls){
     else cout<<"\n\tAll data in the list"<<endl;
     while (tmp != NULL)
     {
-        
-         cout<<"\n\tNumber: "<<tmp->data<<endl;
+        srand(time(0));
+        // Random number
+        for(int i = 0; i < 20; i++)
+            cout<<"\n\tNumber: "<<  rand() % 10 + 1 <<endl;
+        cout<<"\n\tNumber: "<<tmp->data<<endl;
         tmp = tmp->next;
     }
 }
@@ -84,6 +88,10 @@ void displayFromTail(List *ls){
     else cout<<"\n\tAll data in the list"<<endl;
     while (tmp != NULL)
     {
+        srand(time(0));
+        // Random number
+        for(int i = 0; i < 20; i++)
+            cout<<"\n\tNumber: "<<  rand() % 10 + 1 <<endl;
         cout<<"\n\tNumber: "<<tmp->data<<endl;
         tmp = tmp->previous;
     }   
