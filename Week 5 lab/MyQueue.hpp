@@ -42,7 +42,6 @@ void enqueue (Queue * q, int newData) {
 
 void dequeue(Queue * q) {
     Element * tmp;
-    
     if(q->size == 0) {
         cout<<"Data underflow, cannot delete"<<endl;
     }else {
@@ -62,29 +61,4 @@ void displayData(Queue * q) {
         cout<<" "<<tmp->data<<endl;
         tmp = tmp->next;
     }
-}
-
-int main () {
-    
-    Queue * myQueue;
-    myQueue = createEmptyQueue();
-
-    enqueue(myQueue, 10);
-    enqueue(myQueue, 11);
-    enqueue(myQueue, 12);
-    
-    displayData(myQueue);
-    cout<<"#####################"<<endl;
-    dequeue(myQueue);
-    displayData(myQueue);
-    cout<<"#####################"<<endl;
-    dequeue(myQueue);
-    displayData(myQueue);
-    cout<<"#####################"<<endl;
-    dequeue(myQueue);
-    displayData(myQueue);
-    cout<<"#####################"<<endl;
-    dequeue(myQueue);
-    displayData(myQueue);
-    return 0;
 }
