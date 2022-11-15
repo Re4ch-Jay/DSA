@@ -69,8 +69,10 @@ void dequeue(Queue * q) {
 void displayData(Queue * q) {
     Element * tmp;
     tmp = q->front;
+    if(tmp == NULL) cout<<"\n\tThere is no data right now"<<endl;
     while (tmp != NULL)
     {
+        
         cout<<"Name: "<<tmp->name<<endl;
         cout<<"Phone Number: "<<tmp->number<<endl;
         cout<<"Sex: "<<tmp->sex<<endl;
@@ -93,7 +95,7 @@ int main () {
         cout<<"3. Display customer"<<endl;
         cout<<"4. Exit";
         cout<<"\nChoice: "; cin>>choice;
-        system("clear");
+        system("cls"); // clearing screen
         switch (choice)
         {
         case 1:
@@ -102,21 +104,21 @@ int main () {
             cout<<"Customer sex: "; cin>>sex;
             cout<<"Customer phone number: "; cin>>number;
             enqueue(myQueue, sex, name, number);
-            system("clear");
+            system("cls");
             break;
 
         case 2:
             dequeue(myQueue);
             break;
         case 3:
-            system("clear");
+            system("cls");
             cout<<"***All data in the list****"<<endl;
             displayData(myQueue);
             
             break;
         default:
             cout<<"Thank for using our program!"<<endl;
-            system("clear");
+            system("cls");
             break;
         }
     } while (choice != 4);

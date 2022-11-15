@@ -30,7 +30,7 @@ void displayData(Queue * q) {
     tmp = q->front;
     while (tmp != NULL)
     {
-        cout<<" "<<tmp->data<<endl;
+        cout<<" "<<tmp->data;
         tmp = tmp->next;
     }
 }
@@ -40,6 +40,7 @@ void displayData(Queue * q) {
 
 void dequeue(Queue * q) {
     Element * tmp;
+
     if(q->size == 0) {
         cout<<"Data underflow, cannot delete"<<endl;
     }else {
@@ -49,6 +50,7 @@ void dequeue(Queue * q) {
         if(q->size == 1) q->rear = NULL;
         q->size--;
     }
+    
 }
 
 // insertEnd
@@ -57,9 +59,6 @@ void enqueue (Queue * q, string newData) {
     e = new Element();
     e->data = newData;
     e->next = NULL;
-    if(newData == "*"){
-        dequeue(q);
-    }
     if(q->size == 0) {
         q->front = e;
         q->rear = e;
@@ -68,15 +67,17 @@ void enqueue (Queue * q, string newData) {
         q->rear->next = e;
         q->rear = e;
     }
+    if(newData == "*") {
+        dequeue(q);
+    }
     q->size++;
 }
 
 int main() {
 
-
     Queue * myQueue;
     myQueue = createEmptyQueue();
-
+    
     enqueue(myQueue, "E");
     enqueue(myQueue, "A");
     enqueue(myQueue, "S");
@@ -95,14 +96,15 @@ int main() {
     enqueue(myQueue, "*");
     enqueue(myQueue, "*");
     enqueue(myQueue, "I");
-    enqueue(myQueue, "0");
+    enqueue(myQueue, "O");
     enqueue(myQueue, "*");
     enqueue(myQueue, "N");
     enqueue(myQueue, "*");
     enqueue(myQueue, "*");
     enqueue(myQueue, "*");
-
+   
     displayData(myQueue);
+
    
 
     return 0;

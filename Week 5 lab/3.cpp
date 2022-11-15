@@ -53,7 +53,7 @@ void displayData(Queue * q) {
    
     while (tmp != NULL)
     {
-        cout<<"Task...Done"<<endl;
+        cout<<"Task...Done "<<tmp->data<<endl;
         tmp = tmp->next;
     }
 }
