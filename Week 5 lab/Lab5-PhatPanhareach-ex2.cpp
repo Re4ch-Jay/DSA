@@ -25,17 +25,6 @@ Queue * createEmptyQueue() {
     return q;
 }
 
-void displayData(Queue * q) {
-    Element * tmp;
-    tmp = q->front;
-    while (tmp != NULL)
-    {
-        cout<<" "<<tmp->data;
-        tmp = tmp->next;
-    }
-}
-
-
 // deleteBegin
 
 void dequeue(Queue * q) {
@@ -67,11 +56,26 @@ void enqueue (Queue * q, string newData) {
         q->rear->next = e;
         q->rear = e;
     }
-    if(newData == "*") {
-        dequeue(q);
-    }
     q->size++;
 }
+
+
+void displayData(Queue * q) {
+    Element * tmp;
+    tmp = q->front;
+    while (tmp != NULL)
+    {   
+        if(tmp->data == "*") {
+            dequeue(q);
+        }else{
+            cout<<" "<<tmp->data;
+           
+        }
+        tmp = tmp->next;
+     
+    }
+}
+
 
 int main() {
 
