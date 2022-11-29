@@ -81,6 +81,16 @@ int main() {
 
     Queue * myQueue;
     myQueue = createEmptyQueue();
+
+    // string text = "E A S * Y * Q U E * * * S T * * * I O * N * * *";
+    // for (int i = 0; i < text.length(); i++)
+    // {
+    //     if(text[i] == '*'){
+
+    //     }else{
+    //         cout<<" "
+    //     }
+    // }
     
     enqueue(myQueue, "E");
     enqueue(myQueue, "A");
