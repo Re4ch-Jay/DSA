@@ -2,7 +2,6 @@
 using namespace std;
 
 struct Element {
-    int data;
     string name;
     Element * next;
 };
@@ -36,9 +35,9 @@ void addEnd(List *ls, string name) {
     e= new Element();
     e->next = NULL;
     e->name = name;
-
+    ls->head = e;
     if(ls->size == 0) {
-        ls->head = e;
+        
         ls->tail = e;
         ls->size++;
     }else{
@@ -71,6 +70,29 @@ void insertData(string name) {
     addEnd(table[index], name);
 }
 
+void search(string searchValue) {
+    int find;
+    find = hashFunction(searchValue);
+    if(table[find]->head->name == searchValue) {
+        cout<<searchValue<<" found at index "<<find<<endl;
+    }
+    else {
+        cout<<searchValue<<"Not found"<<endl;
+    }
+}
+
+void searchAndDelete(string searchValue) {
+    int find;
+    find = hashFunction(searchValue);
+    if(table[find]->head->name == searchValue) {
+        table[find]->head->name = "";
+    }
+    else {
+        cout<<searchValue<<"Not found"<<endl;
+    }
+}
+
+
 void displayTable() {
     Element * e;
     for (int i = 0; i < SIZE; i++)
@@ -81,7 +103,7 @@ void displayTable() {
             e = table[i]->head;
             while (e != 0)
             {
-                cout<<" "<<e->data;
+                cout<<" "<<e->name;
                 e = e->next;
             }
         }
@@ -93,14 +115,23 @@ void displayTable() {
 int main () {
 
     initializeAllLists();
-    insertData("Reach");
-    insertData("Reach");
-    insertData("Reach");
-    insertData("Reach");
-    insertData("Reach");
 
+    string Reach = "Reach";
+    string Dara = "Dara";
+    cout<<"Before search"<<endl;
+
+    insertData("Bob");
+    insertData(Reach);
+    insertData(Dara);
+    insertData("Pisey");
     displayTable();
-   
+
+    cout<<"After search "<<Reach<<endl;    
+    search(Reach);
+
+    cout<<"After delete "<<Dara<<endl;  
+    searchAndDelete(Dara);
+    displayTable();
 
     return 0;
 }
