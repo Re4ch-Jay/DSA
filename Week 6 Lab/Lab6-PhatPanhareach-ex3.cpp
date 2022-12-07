@@ -26,14 +26,20 @@ Stack * createEmptyStack() {
     return  s;
 }
 
-//insertEnd
+//insertBegin
 void push(Stack * s, char symbols) {
     Element *e;
     e = new Element();
     e->symbols = symbols;
-    e->next = s->top;
-    s->top = e;
-    s->size++;
+    if(s->size == 0) {
+        s->top = e;
+        s->size++;
+    }else{
+        e->next = s->top;
+        s->top = e;
+        s->size++;
+    }
+    
 }
 
 void pop(Stack *s) {
@@ -50,7 +56,8 @@ void pop(Stack *s) {
     }
 }
 
-bool areBracketsBalanced(Stack * s, string expr){
+
+bool areSymbolsBalanced(Stack * s, string expr){
     Element *tmp;
     tmp = new Element();
     // Declare a stack to hold the previous brackets.
@@ -96,20 +103,15 @@ int main() {
 
     Stack * myStack;
     myStack = createEmptyStack();
-    string symbol = "{()}[]{";
+    string symbol = "[](){}";
 
     cout<<"Your symbols: "<<symbol<<endl;
     
     cout<<"Result of checking is: ";
-    if (areBracketsBalanced(myStack, symbol))
+    if (areSymbolsBalanced(myStack, symbol))
         cout << "Balanced";
     else
         cout << "Not Balanced";
-    return 0;
-
-    displayStack(myStack);
-    
-    
 
     return 0;
 }
