@@ -1,0 +1,18 @@
+
+Student id: 1672051705
+Student name: Reach
+Student major: CS
+Student grade: B
+Student overall score: 9
+
+Student id: 1672051715
+Student name: Dara
+Student major: CS
+Student grade: C
+Student overall score: 8
+
+Student id: 1672051821
+Student name: Jack
+Student major: EC
+Student grade: D
+Student overall score: 7
