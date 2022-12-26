@@ -16,8 +16,6 @@ Stack * createEmptyStack () {
     s = new Stack();
     s->size = 0;
     s->top = NULL;
-    s->top = NULL;
-
     return s;
 }
 
