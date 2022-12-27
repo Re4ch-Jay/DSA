@@ -7,6 +7,8 @@ This repo is covered about Data Structure and Algorithms in C++ include:
 <li>Linked List</li>
 <li>Stack</li>
 <li>Queue</li>
+<li>Hash</li>
+<li>Tree</li>
 <li>Searching Algorithms</li>
 <li>and much more</li>
 

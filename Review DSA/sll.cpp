@@ -37,17 +37,16 @@ void insertBegin(List *ls, int data) {
 void insertEnd(List *ls, int data) {
     Element * e;
     e = new Element();
+    e->next = NULL;
+    e->data = data;
     if(ls->size == 0){
-        e->data = data;
         ls->head = e;
         ls->tail = e;
-        ls->size++;
     }else{
-        e->data = data;
         ls->tail->next = e;
         ls->tail =e;
-        ls->size ++;
     }
+    ls->size++;
 }
 
 void deleteBegin(List * ls) {
@@ -78,9 +77,9 @@ int main () {
     List * myList;
     myList =  createEmptyList();
 
-    insertBegin(myList, 10);
-    insertBegin(myList, 20);
-    insertBegin(myList, 30);
+    insertEnd(myList, 10);
+    insertEnd(myList, 20);
+    insertEnd(myList, 30);
 
     displayData(myList);
     cout<<"Delete"<<endl;
