@@ -61,6 +61,34 @@ void deleteBegin(List * ls) {
     }
 }
 
+
+void deleteLast(List *ls){
+    Element * tmp;
+    int i;
+    if(ls->size == 1){
+        deleteBegin(ls);
+    }
+    else{
+        tmp = ls->head;
+        for ( i = 1; i <= ls->size - 2; i++)
+        {
+            tmp = tmp->next;
+        }
+        ls->tail = tmp;
+        tmp = tmp->next;
+        ls->tail->next = NULL;
+        delete(tmp);
+        ls->size--;
+    }
+}
+
+void deleteAll(List *ls){
+    while(ls->size > 0){
+        deleteBegin(ls);
+    }
+}
+
+
 void displayData(List *ls) {
     Element *tmp;
     tmp = ls->head;
